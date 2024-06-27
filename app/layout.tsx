@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Stemtest - Resultaten",
+  title: "Stemtest",
   description:
     "Een interactieve stemtest die kleine en opkomende partijen mee opneemt.",
 };

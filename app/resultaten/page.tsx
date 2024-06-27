@@ -5,6 +5,15 @@ import { ObservingResultsProvider } from "@/app/context/ObservingResultsContext"
 import HoveringResults from "./_components/HoveringResults";
 import { Pencil } from "lucide-react";
 import { BlobCheck } from "@/app/components/ui/Icons";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Stemtest - Resultaten",
+  description: "Vergelijk uw antwoorden met die van de partijen!",
+  robots: {
+    index: false,
+  },
+};
 
 export default async function Page() {
   const parties = await DAL.query.parties.getParties();
