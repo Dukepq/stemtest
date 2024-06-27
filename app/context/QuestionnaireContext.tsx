@@ -42,21 +42,21 @@ export function QuestionnaireAnswersProvider({
     setAnswers(storedAnswers);
     setCurrent(storedIndex);
     setIsLoading(false);
-  }, [setAnswers, setIsLoading]);
+  }, []);
 
   const setAnswersInStorage = useCallback(() => {
     setInStorage("answers", answers);
     setInStorage("last_answered_index", current);
     setIsLoading(false);
-  }, [answers]);
+  }, [answers, current]);
 
   useEffect(() => {
     getAnswersFromStorage();
-  }, []);
+  }, [getAnswersFromStorage]);
 
   useEffect(() => {
     setAnswersInStorage();
-  }, [answers]);
+  }, [setAnswersInStorage, answers, current]);
 
   return (
     <AnswersContext.Provider

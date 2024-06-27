@@ -17,7 +17,7 @@ export default function ResultsWrapper({ parties }: ResultsWrapperProps) {
 
   useEffect(() => {
     setObserving(isIntersecting);
-  }, [isIntersecting]);
+  }, [isIntersecting, setObserving]);
 
   return (
     <div ref={resultsRef}>
