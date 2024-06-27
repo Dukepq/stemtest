@@ -48,6 +48,7 @@ const statementsDAL = {
         .groupBy(Statements.id, Elections.id)
         .orderBy(Statements.index);
 
+      // TODO: modify query to randomise instead of using this...
       const shuffledAnswersStatements: typeof statements = [];
       for (const statement of statements) {
         const shuffledAnswers = shuffleArray(statement.answers);
@@ -56,7 +57,7 @@ const statementsDAL = {
           answers: shuffledAnswers,
         });
       }
-      return statements;
+      return shuffledAnswersStatements;
     },
     async getElectionStatementsWithSentiment(
       year: number,
