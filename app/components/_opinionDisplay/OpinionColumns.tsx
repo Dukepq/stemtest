@@ -63,6 +63,7 @@ export function OpinionColumns({
                   className="md:col-span-2"
                   type="abstain"
                   answers={abstentions}
+                  hideParties={hideParties}
                 />
               )}
             </div>
