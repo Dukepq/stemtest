@@ -57,7 +57,7 @@ export default function QuestionnaireBody({
           <Spinner />
         </div>
       )}
-      <div className="flex min-h-24 max-w-192 justify-center text-center px-6">
+      <div className="flex md:min-h-24 min-h-36 max-w-192 justify-center items-center text-center px-6">
         <h2 className="font-bold text-xl sm:text-2xl">{statement.statement}</h2>
       </div>
       <QuestionnaireNavigation
