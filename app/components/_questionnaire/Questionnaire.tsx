@@ -16,7 +16,7 @@ export default function Questionnaire() {
           questionnaireLength={statements.length}
         />
       </div>
-      <div className="w-full max-w-256 mx-auto mt-12">
+      <div className="w-full max-w-256 mx-auto mt-6">
         {!isLoading && (
           <OpinionColumns
             allowToggle={false}

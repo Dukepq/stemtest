@@ -48,7 +48,7 @@ export default function QuestionnaireBody({
     <div
       key={current}
       className={cn(
-        "relative flex flex-col items-center overflow-hidden justify-center min-h-72 py-6 bg-secondary w-256 rounded-md border border-accent",
+        "relative flex flex-col items-center overflow-hidden justify-center min-h-72 py-6 bg-secondary w-256 rounded-sm md:rounded-md border border-accent",
         isNavigating && "pointer-events-none"
       )}
     >
