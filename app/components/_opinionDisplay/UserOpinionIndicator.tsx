@@ -9,12 +9,9 @@ export default function UserOpinionIndicator({
   columnType,
   statementId,
 }: UserOpinionIndicator) {
-  const { answers, setAnswers } = useAnswerContext();
-  const userOpinion = answers.find(
-    (answer) => answer.id === statementId
-  )?.answer;
+  const { answers } = useAnswerContext();
 
-  if (columnType === userOpinion) {
+  if (columnType === answers[statementId]) {
     return (
       <div className="flex gap-3 text-primary">
         <span className="font-semibold">Uw mening</span>
