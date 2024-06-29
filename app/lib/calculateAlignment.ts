@@ -1,7 +1,7 @@
-import { Opinion, Statement, StatementWithoutReasonedAnswer } from "@/types";
+import { Opinion, StatementWithoutReasonedAnswer } from "@/types";
 
 export default function calculateAlignment(
-  userAnswers: { id: string; answer: Opinion }[],
+  userAnswers: Record<string, Opinion>,
   statementsWithPartyAnswers: Pick<
     StatementWithoutReasonedAnswer,
     "id" | "answers"
@@ -10,14 +10,12 @@ export default function calculateAlignment(
   const alignment: Record<string, number> = {};
 
   for (const statement of statementsWithPartyAnswers) {
-    const userOpinion = userAnswers.find(
-      (userAnswer) => userAnswer.id === statement.id
-    );
-    if (!userOpinion || userOpinion.answer === "no-opinion") continue;
+    const userOpinion = userAnswers[statement.id];
+    if (!userOpinion || userOpinion === "no-opinion") continue;
 
     const matchedAnswers = matchPartyStatementAnswersToUserAnswer(
       statement.answers,
-      userOpinion.answer
+      userOpinion
     );
 
     for (const matchedAnswer of matchedAnswers) {

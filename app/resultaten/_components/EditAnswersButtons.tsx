@@ -17,25 +17,12 @@ export default function EditAnswerButtons({
 }: EditAnswerProps) {
   const { setAnswers, answers } = useAnswerContext();
 
-  const findAnswer = () => {
-    return answers.find((answer) => answer.id === statementId)?.answer;
-  };
-
   const handleClick = useCallback(
     (input: Opinion) => {
-      setAnswers((prev) => {
-        const newAnswers = [...prev];
-        const index = newAnswers.findIndex(
-          (answer) => answer.id === statementId
-        );
-        if (index < 0) {
-          newAnswers.push({ answer: input, id: statementId });
-        }
-        const target = newAnswers[index];
-
-        newAnswers[index] = { ...target, answer: input };
-        return newAnswers;
-      });
+      setAnswers((prev) => ({
+        ...prev,
+        [statementId]: input,
+      }));
     },
     [setAnswers, statementId]
   );
@@ -50,7 +37,7 @@ export default function EditAnswerButtons({
     >
       <button
         className={cn(
-          findAnswer() === "agree" && "bg-green/5 border-green/60",
+          answers[statementId] === "agree" && "bg-green/5 border-green/60",
           "border rounded-l-lg"
         )}
         onClick={() => {
@@ -58,13 +45,13 @@ export default function EditAnswerButtons({
         }}
       >
         <ThumbsUp
-          className={cn(findAnswer() === "agree" && "text-green")}
+          className={cn(answers[statementId] === "agree" && "text-green")}
           size={21}
         />
       </button>
       <button
         className={cn(
-          findAnswer() === "disagree" && "bg-red/5 border-red/60",
+          answers[statementId] === "disagree" && "bg-red/5 border-red/60",
           "border border-opacity-10"
         )}
         onClick={() => {
@@ -72,13 +59,13 @@ export default function EditAnswerButtons({
         }}
       >
         <ThumbsDown
-          className={cn(findAnswer() === "disagree" && "text-red")}
+          className={cn(answers[statementId] === "disagree" && "text-red")}
           size={21}
         />
       </button>
       <button
         className={cn(
-          findAnswer() === "no-opinion" && "bg-text/15 border-text/60",
+          answers[statementId] === "no-opinion" && "bg-text/15 border-text/60",
           "border rounded-r-lg"
         )}
         onClick={() => {

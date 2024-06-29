@@ -16,6 +16,7 @@ type StatementWithoutAnswers = {
   index: number;
 };
 
+// TODO: refactor to generic
 export type Statement = {
   answers: PartyAnswer[];
 } & StatementWithoutAnswers;

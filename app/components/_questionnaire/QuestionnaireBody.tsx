@@ -21,12 +21,10 @@ export default function QuestionnaireBody({
   const [isNavigating, setIsNavigating] = useState<boolean>(false);
 
   const handleClick = (input: Opinion) => {
-    setAnswers((prev) => {
-      const newAnswers = [...prev];
-      const { id: qId, index: qIndex } = statement;
-      newAnswers[qIndex] = { id: qId, answer: input };
-      return newAnswers;
-    });
+    setAnswers((prev) => ({
+      ...prev,
+      [statement.id]: input,
+    }));
     setCurrent((prev) =>
       questionnaireLength - 1 >= prev + 1 ? prev + 1 : prev
     );
@@ -69,9 +67,7 @@ export default function QuestionnaireBody({
         handleClick={handleClick}
         statement={statement}
         questionnaireLength={questionnaireLength}
-        userOpinion={
-          answers.find((answer) => answer.id === statement.id)?.answer
-        }
+        userOpinion={answers[statement.id]}
       />
     </div>
   );

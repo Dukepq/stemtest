@@ -1,6 +1,6 @@
 "use client";
 
-import { QuestionnaireAnswer } from "@/types";
+import { Opinion, QuestionnaireAnswer } from "@/types";
 import {
   useState,
   useContext,
@@ -12,7 +12,7 @@ import {
 } from "react";
 import { getFromStorage, setInStorage } from "../lib/localStorage";
 
-type Answers = QuestionnaireAnswer[];
+type Answers = { [id: string]: Opinion };
 const AnswersContext = createContext<{
   answers: Answers;
   setAnswers: Dispatch<SetStateAction<Answers>>;
@@ -26,7 +26,7 @@ export function QuestionnaireAnswersProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [answers, setAnswers] = useState<Answers>([]);
+  const [answers, setAnswers] = useState<Answers>({});
   const [current, setCurrent] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -35,7 +35,7 @@ export function QuestionnaireAnswersProvider({
     const storedIndex = getFromStorage<number>("last_answered_index");
     if (
       !storedAnswers ||
-      storedAnswers.length === 0 ||
+      Object.keys(storedAnswers).length === 0 ||
       typeof storedIndex !== "number"
     )
       return;
