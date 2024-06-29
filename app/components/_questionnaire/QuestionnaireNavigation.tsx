@@ -12,7 +12,7 @@ export default function QuestionnaireNavigation({
   questionnaireLength,
   disableMoveRight = false,
 }: QuestionnaireNavigationProps) {
-  const { answers, setCurrent } = useAnswerContext();
+  const { answers, decrementCurrent, incrementCurrent } = useAnswerContext();
   const allowMoveLeft = idx >= 1;
   const allowMoveRight =
     !disableMoveRight &&
@@ -29,7 +29,7 @@ export default function QuestionnaireNavigation({
         )}
         onClick={() => {
           if (!allowMoveLeft) return;
-          setCurrent((prev) => (allowMoveLeft ? prev - 1 : prev));
+          decrementCurrent();
         }}
       >
         <MoveLeft />
@@ -45,7 +45,8 @@ export default function QuestionnaireNavigation({
           !allowMoveRight && "opacity-25 cursor-default"
         )}
         onClick={() => {
-          setCurrent((prev) => (allowMoveRight ? prev + 1 : prev));
+          if (!allowMoveRight) return;
+          incrementCurrent();
         }}
       >
         <MoveRight />

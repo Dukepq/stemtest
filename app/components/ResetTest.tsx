@@ -1,6 +1,7 @@
 "use client";
 import { useAnswerContext } from "@/app/context/QuestionnaireContext";
 import { ListRestart } from "lucide-react";
+import { setInStorage } from "../lib/localStorage";
 
 export default function ResetTest() {
   const { answers, setAnswers, setCurrent } = useAnswerContext();
@@ -10,6 +11,8 @@ export default function ResetTest() {
       onClick={() => {
         setAnswers({});
         setCurrent(0);
+        setInStorage("last_answered_index", 0);
+        setInStorage("answers", {});
       }}
       className="hidden motion-safe:animate-slideUpAndFade md:flex size-8 rounded-sm border border-text fixed right-6 bottom-6 cursor-pointer group lg:hover:w-44 motion-safe:transition-all overflow-hidden backdrop-blur-sm"
     >

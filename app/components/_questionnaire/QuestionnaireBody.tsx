@@ -15,22 +15,18 @@ export default function QuestionnaireBody({
   statement,
   questionnaireLength,
 }: QuestionnaireBodyProps) {
-  const { answers, current, setAnswers, setCurrent, isLoading } =
+  const { answers, current, incrementCurrent, updateAnswers, isLoading } =
     useAnswerContext();
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState<boolean>(false);
 
   const handleClick = (input: Opinion) => {
-    setAnswers((prev) => ({
-      ...prev,
-      [statement.id]: input,
-    }));
-    setCurrent((prev) =>
-      questionnaireLength - 1 >= prev + 1 ? prev + 1 : prev
-    );
+    updateAnswers(statement.id, input);
     if (current >= questionnaireLength - 1) {
       setIsNavigating(true);
       router.push("/resultaten");
+    } else {
+      incrementCurrent();
     }
   };
 

@@ -15,16 +15,13 @@ export default function EditAnswerButtons({
   className,
   ...props
 }: EditAnswerProps) {
-  const { setAnswers, answers } = useAnswerContext();
+  const { updateAnswers, answers } = useAnswerContext();
 
   const handleClick = useCallback(
     (input: Opinion) => {
-      setAnswers((prev) => ({
-        ...prev,
-        [statementId]: input,
-      }));
+      updateAnswers(statementId, input);
     },
-    [setAnswers, statementId]
+    [statementId, updateAnswers]
   );
 
   return (

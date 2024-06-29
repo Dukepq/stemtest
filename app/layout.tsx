@@ -26,7 +26,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <StatementContextProvider value={statements}>
-        <QuestionnaireAnswersProvider>
+        <QuestionnaireAnswersProvider questionnaireLength={statements.length}>
           <body className={poppins.className}>{children}</body>
         </QuestionnaireAnswersProvider>
       </StatementContextProvider>
