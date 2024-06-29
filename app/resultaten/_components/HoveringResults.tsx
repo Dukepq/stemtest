@@ -3,7 +3,7 @@ import { useObservingResultsContext } from "@/app/context/ObservingResultsContex
 import Results from "./Results";
 import { Party } from "@/drizzle";
 import { cn } from "@/app/lib/utils";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ChevronsUp, X } from "lucide-react";
 import useAnimationWindow from "@/app/hooks/useAnimationWindow";
 
