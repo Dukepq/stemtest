@@ -11,6 +11,7 @@ import calculateAlignment, {
 import { useAnswerContext } from "@/app/context/QuestionnaireContext";
 import Spinner from "@/app/components/ui/Spinner";
 import { useStatementContext } from "@/app/context/StatementContext";
+import Image from "next/image";
 
 type ResultsProps = {
   parties: Party[];
@@ -96,7 +97,18 @@ export function Result({
   return (
     <>
       <HoverCard
-        trigger={<img src={partyLogo} className="max-w-20 h-8" alt={party} />}
+        trigger={
+          <Image
+            src={partyLogo}
+            className="max-w-20 h-8 object-left"
+            width={80}
+            height={32}
+            alt={party}
+            style={{
+              objectFit: "contain",
+            }}
+          />
+        }
       >
         <span>{party}</span>
       </HoverCard>

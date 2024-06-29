@@ -1,3 +1,4 @@
+import Image from "next/image";
 import HoverCard from "../ui/HoverCard";
 
 type OpinionWidgetProps = {
@@ -19,9 +20,11 @@ export function OpinionWidget({
       {name && partyLogo && !hideParties && (
         <HoverCard
           trigger={
-            <img
+            <Image
               draggable="false"
-              className="max-w-16 h-6"
+              className="max-w-16 h-6 object-left"
+              width={64}
+              height={24}
               alt={name}
               src={partyLogo}
               style={{ objectFit: "contain" }}
