@@ -1,66 +1,102 @@
 "use client";
 
-import { Opinion, QuestionnaireAnswer } from "@/types";
+import { Opinion } from "@/types";
 import {
   useState,
   useContext,
   createContext,
   useEffect,
-  SetStateAction,
   useCallback,
   Dispatch,
+  SetStateAction,
 } from "react";
 import { getFromStorage, setInStorage } from "../lib/localStorage";
 
 type Answers = { [id: string]: Opinion };
 const AnswersContext = createContext<{
   answers: Answers;
-  setAnswers: Dispatch<SetStateAction<Answers>>;
   isLoading: boolean;
   current: number;
+  setAnswers: Dispatch<SetStateAction<Answers>>;
   setCurrent: Dispatch<SetStateAction<number>>;
+  updateAnswers: (statementId: string, opinion: Opinion) => void;
+  incrementCurrent: () => void;
+  decrementCurrent: () => void;
 } | null>(null);
 
 export function QuestionnaireAnswersProvider({
   children,
+  questionnaireLength,
 }: {
   children: React.ReactNode;
+  questionnaireLength: number;
 }) {
   const [answers, setAnswers] = useState<Answers>({});
   const [current, setCurrent] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  const updateAnswers = useCallback(
+    (statementId: string, opinion: Opinion) => {
+      setInStorage("answers", { ...answers, [statementId]: opinion });
+      setAnswers((prev) => ({ ...prev, [statementId]: opinion }));
+    },
+    [answers]
+  );
+
+  const incrementCurrent = useCallback(() => {
+    setInStorage(
+      "last_answered_index",
+      Math.min(current + 1, questionnaireLength - 1)
+    );
+    setCurrent((prev) => prev + 1);
+  }, [current]);
+
+  const decrementCurrent = useCallback(() => {
+    setInStorage("last_answered_index", Math.max(current - 1, 0));
+    setCurrent((prev) => prev - 1);
+  }, [current]);
+
   const getAnswersFromStorage = useCallback(() => {
-    const storedAnswers = getFromStorage<Answers>("answers");
-    const storedIndex = getFromStorage<number>("last_answered_index");
-    if (
-      !storedAnswers ||
-      Object.keys(storedAnswers).length === 0 ||
-      typeof storedIndex !== "number"
-    )
-      return;
+    let storedAnswers = getFromStorage<Answers>("answers");
+    if (!storedAnswers || Object.keys(storedAnswers).length === 0) {
+      storedAnswers = {};
+    }
     setAnswers(storedAnswers);
-    setCurrent(storedIndex);
-    setIsLoading(false);
   }, []);
 
-  const setAnswersInStorage = useCallback(() => {
-    setInStorage("answers", answers);
-    setInStorage("last_answered_index", current);
-    setIsLoading(false);
-  }, [answers, current]);
+  const getCurrentFromStorage = useCallback(() => {
+    let storedIndex = getFromStorage<number>("last_answered_index");
+    if (typeof storedIndex !== "number") {
+      storedIndex = 0;
+    }
+    if (storedIndex >= questionnaireLength - 1) {
+      storedIndex = questionnaireLength - 1;
+      setInStorage("last_answered_index", storedIndex);
+    } else if (storedIndex <= 0) {
+      storedIndex = 0;
+      setInStorage("last_answered_index", storedIndex);
+    }
+    setCurrent(storedIndex);
+  }, []);
 
   useEffect(() => {
     getAnswersFromStorage();
-  }, [getAnswersFromStorage]);
-
-  useEffect(() => {
-    setAnswersInStorage();
-  }, [setAnswersInStorage, answers, current]);
+    getCurrentFromStorage();
+    setIsLoading(false);
+  }, []);
 
   return (
     <AnswersContext.Provider
-      value={{ answers, setAnswers, isLoading, current, setCurrent }}
+      value={{
+        answers,
+        isLoading,
+        current,
+        incrementCurrent,
+        decrementCurrent,
+        updateAnswers,
+        setCurrent,
+        setAnswers,
+      }}
     >
       {children}
     </AnswersContext.Provider>
