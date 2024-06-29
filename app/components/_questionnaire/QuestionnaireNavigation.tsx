@@ -15,7 +15,9 @@ export default function QuestionnaireNavigation({
   const { answers, setCurrent } = useAnswerContext();
   const allowMoveLeft = idx >= 1;
   const allowMoveRight =
-    !disableMoveRight && idx < questionnaireLength - 1 && idx < answers.length;
+    !disableMoveRight &&
+    idx < questionnaireLength - 1 &&
+    idx < Object.keys(answers).length;
 
   return (
     <div className="flex gap-2 items-center py-1 sm:py-3">
