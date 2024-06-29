@@ -10,7 +10,7 @@ export const setInStorage = (key: string, value: unknown) => {
 
   try {
     const valueString = JSON.stringify(value);
-    localStorage.setItem(key, valueString);
+    sessionStorage.setItem(key, valueString);
   } catch (e) {
     console.error(e);
   }
@@ -23,7 +23,7 @@ export const getFromStorage = <T>(
   checkForServer();
 
   try {
-    const value = localStorage.getItem(key);
+    const value = sessionStorage.getItem(key);
     if (!value) return null;
 
     return serializer ? serializer(value) : (JSON.parse(value) as T);
@@ -37,7 +37,7 @@ export const deleteFromStorage = (key: string) => {
   checkForServer();
 
   try {
-    localStorage.removeItem(key);
+    sessionStorage.removeItem(key);
   } catch (e) {
     console.error(e);
   }
