@@ -8,7 +8,7 @@ import { BlobCheck } from "@/app/components/ui/Icons";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Stemtest - Resultaten",
+  title: "Resultaten",
   description: "Vergelijk uw antwoorden met die van de partijen!",
   robots: {
     index: false,

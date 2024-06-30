@@ -11,7 +11,7 @@ const buttonOptions = cva("rounded-sm text-nowrap", {
     variant: {
       default: "bg-primary font-normal text-background",
       outline: "border border-primary",
-      ghost: "bg-accent/20 hover:bg-accent/50",
+      ghost: "bg-accent/0 hover:bg-accent/50",
     },
     size: {
       default: "text-lg py-1 px-5 font-semibold",

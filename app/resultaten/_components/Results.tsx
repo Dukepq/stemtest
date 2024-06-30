@@ -39,18 +39,6 @@ export default function Results({ parties, displayMax }: ResultsProps) {
     );
   }
 
-  if (alignments.length === 0) {
-    return (
-      <div className="grid place-content-center h-48">
-        <p className="opacity-50">
-          Je hebt nog geen vragen beantwoord met{" "}
-          <span className="italic">eens</span> of{" "}
-          <span className="italic">oneens</span>.
-        </p>
-      </div>
-    );
-  }
-
   return (
     <div
       ref={containerRef}

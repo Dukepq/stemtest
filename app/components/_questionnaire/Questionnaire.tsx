@@ -20,7 +20,7 @@ export default function Questionnaire() {
       </div>
       {!isLoading && (
         <div className="max-w-256 mx-auto flex items-center justify-center md:justify-end sm:mt-0.5 mt-3">
-          <Link href="/resultaten" className="opacity-35 text-sm">
+          <Link href="/resultaten" className="opacity-25 text-sm">
             <span>overslaan en naar overzicht</span>
             <MoveRight strokeWidth={1} size={20} className="inline ml-2" />
           </Link>

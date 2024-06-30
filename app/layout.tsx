@@ -11,9 +11,12 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Stemtest",
+  title: {
+    default: "De Stemtest",
+    template: "%s - De Stemtest",
+  },
   description:
-    "Een interactieve stemtest die kleine en opkomende partijen mee opneemt.",
+    "Doe de interactieve stemtest die kleinere partijen mee opneemt en kom te weten met welke partij jij het meest overeen komt.",
 };
 
 export default async function RootLayout({

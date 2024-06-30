@@ -16,8 +16,6 @@ export default function InfoWidget({
     if (!stored) setDismissed(false);
   }, []);
 
-  const [delayedDismissed, animate] = useAnimationWindow(dismissed, 250);
-
   if (dismissed) return undefined;
   return (
     <div
@@ -28,7 +26,7 @@ export default function InfoWidget({
       )}
     >
       <p className="pr-6">
-        Uw antwoorden zijn volledig anoniem en worden met niemand gedeeld.
+        Je antwoorden zijn volledig anoniem en worden met niemand gedeeld.
       </p>
       <X
         className="cursor-pointer text-primary absolute top-1 right-1 opacity-80 hover:opacity-100 transition-opacity"

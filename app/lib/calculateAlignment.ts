@@ -11,7 +11,6 @@ export default function calculateAlignment(
 
   for (const statement of statementsWithPartyAnswers) {
     const userOpinion = userAnswers[statement.id];
-    if (!userOpinion || userOpinion === "no-opinion") continue;
 
     const matchedAnswers = matchPartyStatementAnswersToUserAnswer(
       statement.answers,
@@ -23,6 +22,7 @@ export default function calculateAlignment(
       if (typeof alignment[party] !== "number") {
         alignment[party] = 0;
       }
+      if (!userOpinion || userOpinion === "no-opinion") continue;
       if (agree) alignment[party]++;
     }
   }
