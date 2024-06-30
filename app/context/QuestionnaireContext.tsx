@@ -94,7 +94,7 @@ export function QuestionnaireAnswersProvider({
       setInStorage("completed", true);
       router.replace("/");
     }
-  });
+  }, []);
 
   return (
     <AnswersContext.Provider

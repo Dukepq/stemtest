@@ -17,6 +17,8 @@ const config: Config = {
       red: colors.red[500],
       blue: colors.blue[500],
       green: colors.green[600],
+      white: colors.white,
+      black: colors.black,
     },
     extend: {
       spacing: {
