@@ -58,11 +58,10 @@ function matchPartyStatementAnswersToUserAnswer(
   const agreementArray: { party: string; agree: boolean }[] = [];
   for (const answer of answers) {
     const userAgrees = userOpinion === "agree";
-    if (answer.inFavor === userAgrees) {
-      agreementArray.push({ party: answer.name, agree: true });
-    } else {
-      agreementArray.push({ party: answer.name, agree: false });
-    }
+    agreementArray.push({
+      party: answer.name,
+      agree: answer.inFavor === userAgrees,
+    });
   }
   return agreementArray;
 }
