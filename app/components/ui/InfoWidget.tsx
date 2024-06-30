@@ -16,13 +16,16 @@ export default function InfoWidget({
     if (!stored) setDismissed(false);
   }, []);
 
-  if (dismissed) return undefined;
+  const [delayedDismissed, animate] = useAnimationWindow(dismissed, 200);
+
+  if (delayedDismissed) return undefined;
   return (
     <div
       {...props}
       className={cn(
-        "relative flex w-full max-w-[calc(100%-12px)] md:max-w-128 py-2 px-6 bg-text/15 rounded-md transition-all",
-        className
+        "relative flex w-full max-w-[calc(100%-12px)] md:max-w-128 py-2 px-6 rounded-md transition-all duration-200",
+        className,
+        animate && "translate-y-96 opacity-0"
       )}
     >
       <p className="pr-6">

@@ -19,7 +19,7 @@ export default async function Page() {
   const parties = await DAL.query.parties.getParties();
   return (
     <ObservingResultsProvider>
-      <main className="max-w-screen-xl mx-auto md:px-3 md:my-3">
+      <main className="max-w-screen-xl mx-auto md:px-3 md:py-3">
         <HoveringResults parties={parties} />
         <div className="flex justify-center">
           <div

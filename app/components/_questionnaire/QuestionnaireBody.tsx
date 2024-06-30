@@ -44,12 +44,12 @@ export default function QuestionnaireBody({
     <div
       key={current}
       className={cn(
-        "relative flex flex-col items-center overflow-hidden justify-center min-h-72 py-6 bg-secondary w-256 rounded-sm md:rounded-md border border-accent",
+        "relative flex flex-col items-center overflow-hidden justify-center min-h-72 py-6 w-256",
         isNavigating && "pointer-events-none"
       )}
     >
       {isNavigating && (
-        <div className="grid absolute z-10 w-full h-full bg-background/60 place-content-center">
+        <div className="grid absolute z-10 w-full h-full place-content-center">
           <Spinner />
         </div>
       )}
