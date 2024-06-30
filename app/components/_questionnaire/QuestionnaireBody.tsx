@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Spinner from "@/app/components/ui/Spinner";
 import { useState } from "react";
 import { cn } from "@/app/lib/utils";
+import { setInStorage } from "@/app/lib/localStorage";
 
 type QuestionnaireBodyProps = {
   statement: Statement;
@@ -23,6 +24,7 @@ export default function QuestionnaireBody({
   const handleClick = (input: Opinion) => {
     updateAnswers(statement.id, input);
     if (current >= questionnaireLength - 1) {
+      setInStorage("completed", true);
       setIsNavigating(true);
       router.push("/resultaten");
     } else {

@@ -11,6 +11,7 @@ import {
   SetStateAction,
 } from "react";
 import { getFromStorage, setInStorage } from "../lib/localStorage";
+import { usePathname, useRouter } from "next/navigation";
 
 type Answers = { [id: string]: Opinion };
 const AnswersContext = createContext<{
@@ -34,6 +35,8 @@ export function QuestionnaireAnswersProvider({
   const [answers, setAnswers] = useState<Answers>({});
   const [current, setCurrent] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const updateAnswers = useCallback(
     (statementId: string, opinion: Opinion) => {
@@ -84,6 +87,14 @@ export function QuestionnaireAnswersProvider({
     getCurrentFromStorage();
     setIsLoading(false);
   }, []);
+
+  useEffect(() => {
+    const completed = getFromStorage<boolean>("completed");
+    if (!completed && pathname === "/resultaten") {
+      setInStorage("completed", true);
+      router.replace("/");
+    }
+  });
 
   return (
     <AnswersContext.Provider
