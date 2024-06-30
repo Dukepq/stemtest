@@ -45,7 +45,7 @@ function EditAnswer({ answers, id, index, statement, idx }: EditAnswerProps) {
         >
           <button
             onClick={() => setOpen((prev) => !prev)}
-            className="flex md:items-center cursor-pointer max-w-screen-lg grow"
+            className="flex items-center flex-col cursor-pointer max-w-screen-lg grow"
           >
             <span className="w-6 mr-2.5">{index + 1}.</span>
             <h3 className="text-lg text-primary font-bold md:text-left">
