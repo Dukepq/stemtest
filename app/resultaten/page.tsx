@@ -19,7 +19,7 @@ export default async function Page() {
   const parties = await DAL.query.parties.getParties();
   return (
     <ObservingResultsProvider>
-      <main className="max-w-screen-xl mx-auto md:px-3 md:py-3">
+      <main className="max-w-screen-xl mx-auto md:px-3 md:py-1.5">
         <HoveringResults parties={parties} />
         <div className="flex justify-center">
           <div
@@ -40,7 +40,7 @@ export default async function Page() {
             <ResultsWrapper parties={parties} />
           </div>
         </div>
-        <div className="flex justify-center gap-3 items-center p-3 mt-3 bg-secondary border-x border-t border-accent drop-shadow-md font-semibold rounded-t-sm">
+        <div className="flex justify-center gap-3 items-center p-3 mt-1.5 bg-secondary border-x border-t border-accent drop-shadow-md font-semibold rounded-t-sm">
           <Pencil size={23} />
           <h2 className="text-lg">Pas je antwoorden aan</h2>
         </div>
