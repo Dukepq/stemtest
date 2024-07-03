@@ -23,7 +23,7 @@ export default function InfoWidget({
     <div
       {...props}
       className={cn(
-        "relative flex w-full max-w-[calc(100%-12px)] md:max-w-128 py-2 px-6 rounded-md transition-all duration-200",
+        "relative flex w-full max-w-[calc(100%-12px)] md:max-w-128 py-2 px-6 rounded-md transition-all duration-200 z-10",
         className,
         animate && "translate-y-96 opacity-0"
       )}
