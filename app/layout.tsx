@@ -27,7 +27,7 @@ export default async function RootLayout({
   const statements =
     await DAL.query.statements.getElectionStatementsWithAnswers(2024, "mix");
   return (
-    <html lang="en">
+    <html lang="nl">
       <StatementContextProvider value={statements}>
         <QuestionnaireAnswersProvider questionnaireLength={statements.length}>
           <body className={poppins.className}>{children}</body>
