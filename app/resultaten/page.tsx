@@ -24,7 +24,7 @@ export default async function Page() {
         <div className="flex justify-center">
           <div
             style={{ overflowAnchor: "none" }}
-            className="w-full bg-secondary/100 py-6 px-9 md:rounded-sm border border-accent"
+            className="w-full bg-secondary/100 py-6 px-9 md:rounded-md"
           >
             <div className="text-center mb-3">
               <div className="flex justify-center gap-3 items-center">
@@ -40,11 +40,13 @@ export default async function Page() {
             <ResultsWrapper parties={parties} />
           </div>
         </div>
-        <div className="flex justify-center gap-3 items-center p-3 mt-1.5 bg-secondary border-x border-t border-accent drop-shadow-md font-semibold rounded-t-sm">
-          <Pencil size={23} />
-          <h2 className="text-lg">Pas je antwoorden aan</h2>
+        <div className="bg-secondary mb-3">
+          <div className="flex justify-center gap-3 items-center p-3 mt-3 bg-accent/10 font-semibold md:rounded-t-md">
+            <Pencil size={23} />
+            <h2 className="text-lg">Pas je antwoorden aan</h2>
+          </div>
+          <EditAnswers />
         </div>
-        <EditAnswers />
       </main>
     </ObservingResultsProvider>
   );

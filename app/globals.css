@@ -5,9 +5,9 @@
 @layer base {
   :root {
     --color-text: 5 12 23;
-    --color-background: 251 251 240;
+    --color-background: 251 251 233;
     --color-primary: 92 29 150;
-    --color-secondary: 240 240 219;
+    --color-secondary: 240 240 226;
     --color-accent: 201 199 105;
 
     --accordion-content-height: 6rem;

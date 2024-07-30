@@ -11,7 +11,7 @@ export default function EditAnswers() {
   const statements = useStatementContext();
   const editSectionRef = useRef<HTMLDivElement>(null);
   return (
-    <div ref={editSectionRef} className="bg-secondary/100 rounded-sm">
+    <div ref={editSectionRef} className="rounded-sm">
       {statements.map((statement, idx) => {
         return <EditAnswer key={statement.id} {...statement} idx={idx} />;
       })}
@@ -24,12 +24,7 @@ function EditAnswer({ answers, id, index, statement, idx }: EditAnswerProps) {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
-    <div
-      className={cn(
-        "border-x border-b border-accent px-3 relative",
-        idx === 0 && "border-t"
-      )}
-    >
+    <div className={cn("px-3 relative")}>
       <OpinionColumns
         statementId={id}
         showUserOpinion={true}
