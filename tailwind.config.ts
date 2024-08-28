@@ -63,6 +63,10 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translate(-50%, -150%)" },
           "100%": { opacity: "1", transform: "translate(-50%, 0)" },
         },
+        slideInFromLeft: {
+          from: { transform: "translate(-100%, 0%)", opacity: "0.5" },
+          to: { transform: "translate(0%, 0%)", opacity: "1" },
+        },
       },
       animation: {
         slideDownAndFadeAbsoluteEl: "slideDownAndFadeAbsoluteEl 300ms ease-out",
@@ -77,6 +81,7 @@ const config: Config = {
         slideUpAndFade: "slideUpAndFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
         slideUpAndFadeAbsoluteEl:
           "slideUpAndFadeAbsoluteEl 300ms cubic-bezier(0.16, 0, 0.13, 1)",
+        slideInFromLeft: "slideInFromLeft 300ms ease-out",
       },
       gridTemplateColumns: {
         minAutoMin: "min-content auto min-content",

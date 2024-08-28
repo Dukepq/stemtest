@@ -32,7 +32,7 @@ export default function Questionnaire() {
           onClick={() => {
             setInStorage("completed", true);
           }}
-          href="/resultaten"
+          href="/stemtest/resultaten"
           className="opacity-35 text-sm"
         >
           <span>overslaan en naar overzicht</span>

@@ -26,7 +26,7 @@ export default function QuestionnaireBody({
     if (current >= questionnaireLength - 1) {
       setInStorage("completed", true);
       setIsNavigating(true);
-      router.push("/resultaten");
+      router.push("/stemtest/resultaten");
     } else {
       incrementCurrent();
     }
