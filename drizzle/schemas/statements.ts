@@ -15,3 +15,5 @@ export const Statements = pgTable(
     uniqueConstraint: unique().on(t.index, t.electionId),
   })
 );
+
+export type StatementInsert = typeof Statements.$inferSelect;

@@ -13,3 +13,5 @@ export const Answers = pgTable("answers", {
     .references(() => Parties.name, { onDelete: "cascade" })
     .notNull(),
 });
+
+export type AnswerInsert = typeof Answers.$inferSelect;

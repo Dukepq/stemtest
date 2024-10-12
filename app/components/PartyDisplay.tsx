@@ -12,7 +12,7 @@ import { Plus } from "lucide-react";
 
 export default function PartyDisplay() {
   return (
-    <div className="w-full sm:w-fit grid gap-3 sm:gap-6 grid-cols-3 [&_img]:object-center [&_img]:w-20 [&_img]:min-w-20 sm:[&_img]:min-w-28 sm:[&_img]:w-28  [&_img]:max-h-8 [&_img]:object-contain [&>div]:grid [&>div]:place-content-center motion-safe:animate-slideInFromLeft">
+    <div className="w-full sm:w-fit grid gap-3 sm:gap-6 grid-cols-3 [&_img]:object-center [&_img]:w-20 [&_img]:min-w-20 sm:[&_img]:min-w-28 sm:[&_img]:w-28  [&_img]:max-h-8 [&_img]:object-contain [&>div]:grid [&>div]:place-content-center lg:motion-safe:animate-slideInFromLeft motion-safe:animate-slideUpAndFade">
       <div>
         <Image draggable="false" alt="cd&v" src={cdv} />
       </div>
