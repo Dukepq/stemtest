@@ -32,45 +32,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="[&_h2]:text-xl [&_h2]:font-semibold">
-        <div className="flex gap-3 my-6">
-          <div className="basis-1/2">
-            <h2>Waarom deze stemtest?</h2>
-            <p className="text-balance">
-              In de originele stemtest vind je Volt en VoorU niet terug.
-            </p>
-            <p>
-              De bedoeling van deze stemtest is dan ook om het eenvoudiger te
-              maken ook Volt en VoorU te vergelijken met de traditionele
-              partijen.
-            </p>
-            <p>
-              Je ziet deze stemtest best als aanvullend, aangezien de resultaten
-              anders berekend worden dan in de officiële stemtest.
-            </p>
-          </div>
-          <div className="basis-1/2">
-            <h2>Hoe werkt het?</h2>
-            <p>
-              De werking is eenvoudig, als jij en de partij beide{" "}
-              <span className="italic font-semibold">eens</span> of{" "}
-              <span className="italic font-semibold">oneens</span> hebben
-              aangeduid, dan neemt de overeenkomst tussen jouw en die partij met
-              een &quot;punt&quot; toe.
-            </p>
-
-            <p>
-              In tegenstelling tot de officiële stemtest wordt de toename niet
-              gewogen aan het belang dat de partij heeft voor de stelling.
-            </p>
-            <p className="text-sm italic">
-              *Volt heeft op een vraag &quot;geen mening&quot; ingevuld, als jij
-              hier ook &quot;geen mening&quot; aanduid telt dit niet als een
-              &quot;punt&quot;.
-            </p>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
