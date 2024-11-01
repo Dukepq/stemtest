@@ -13,7 +13,7 @@ export default function Page() {
               De uitgebreide stemtest
             </h1>
             <p className="[&>span]:font-bold [&>span]:text-primary text-base [&>span]:text-lg text-wrap max-w-screen-md">
-              In deze stemtest vergelijk je je antwoorden ook met die van{" "}
+              Met deze stemtest vergelijk je je antwoorden ook met die van{" "}
               <span>Volt</span> en <span>VoorU</span>!
             </p>
             <Link
