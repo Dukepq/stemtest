@@ -7,8 +7,12 @@ import { useObservingResultsContext } from "@/app/context/ObservingResultsContex
 
 type ResultsWrapperProps = {
   parties: Party[];
+  className?: string;
 };
-export default function ResultsWrapper({ parties }: ResultsWrapperProps) {
+export default function ResultsWrapper({
+  parties,
+  className,
+}: ResultsWrapperProps) {
   const resultsRef = useRef<HTMLDivElement>(null);
   const isIntersecting = useIntersectionObserver(resultsRef, {
     initialIntercepting: true,
@@ -20,7 +24,7 @@ export default function ResultsWrapper({ parties }: ResultsWrapperProps) {
   }, [isIntersecting, setObserving]);
 
   return (
-    <div ref={resultsRef}>
+    <div className={className} ref={resultsRef}>
       <Results parties={parties} />
     </div>
   );
