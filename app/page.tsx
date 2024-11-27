@@ -13,7 +13,7 @@ export default function Page() {
               De uitgebreide stemtest
             </h1>
             <p className="[&>span]:font-bold [&>span]:text-primary text-base font-medium [&>span]:text-lg text-wrap max-w-screen-md">
-              Ook benieuwd of je overeen komt met <span>Volt</span> en{" "}
+              Ook benieuwd of je overeenkomt met <span>Volt</span> en{" "}
               <span>VoorU</span>?
             </p>
             <Link
