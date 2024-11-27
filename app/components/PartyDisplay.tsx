@@ -35,17 +35,9 @@ export default function PartyDisplay() {
         <Image draggable="false" alt="open vld" src={ovld} />
       </div>
       <div className="relative">
-        <Plus
-          size={21}
-          className="absolute hidden sm:inline -top-3 -right-0 text-accent animate-slideUpAndFade"
-        />
         <Image draggable="false" alt="volt" src={volt} />
       </div>
       <div className="relative">
-        <Plus
-          size={21}
-          className="absolute hidden sm:inline -top-3 -right-0 text-accent animate-slideUpAndFade"
-        />
         <Image draggable="false" alt="voorU" src={vooru} />
       </div>
     </div>

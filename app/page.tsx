@@ -9,18 +9,18 @@ export default function Page() {
       <section className="min-h-screen grid place-content-center">
         <div className="flex items-center flex-col-reverse lg:flex-row">
           <div className="lg:max-w-[65%] text-center lg:text-left text-wrap md:text-balance lg:pr-6">
-            <h1 className="font-bold text-xl sm:text-2xl">
+            <h1 className="font-bold text-xl sm:text-2xl leading-3">
               De uitgebreide stemtest
             </h1>
-            <p className="[&>span]:font-bold [&>span]:text-primary text-base [&>span]:text-lg text-wrap max-w-screen-md">
-              Met deze stemtest vergelijk je je antwoorden ook met die van{" "}
-              <span>Volt</span> en <span>VoorU</span>!
+            <p className="[&>span]:font-bold [&>span]:text-primary text-base font-medium [&>span]:text-lg text-wrap max-w-screen-md">
+              Ook benieuwd of je overeen komt met <span>Volt</span> en{" "}
+              <span>VoorU</span>?
             </p>
             <Link
               href="/stemtest"
               className={cn(
                 buttonOptions({}),
-                "block mt-3 py-1.5 w-full sm:w-fit sm:mx-auto lg:mx-0 text-base"
+                "block mt-2.5 py-1.5 w-full sm:w-fit sm:mx-auto lg:mx-0 text-base"
               )}
             >
               Doe de stemtest!
